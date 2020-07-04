@@ -1,0 +1,26 @@
+div.list-element {
+    background-color:#FAFAFA;
+    padding: 20px;
+}
+div.list-element:hover {
+    background-color:#F0F0F0;
+}
+
+.thumbnail {
+  margin: 5px;
+  overflow: hidden;
+  justify-content: center;
+  max-height: 15em;
+  text-align: center;
+}
+
+.thumbnail > img {
+  position: relative;
+  left: 100%;
+  margin-left: -200%;
+}
+
+ul.tags {text-align: left; list-style: none; padding-left: 0;}
+ul.tags li { float:left; margin-right: 5px;}
+li.tag:after { content: "\,  "; background: no-repeat;}
+li.tag:last-child:after { content: none; }

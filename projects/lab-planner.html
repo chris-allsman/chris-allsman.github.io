@@ -1,0 +1,218 @@
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    
+<title>Lab Planner</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    
+<link rel="stylesheet" href="/static/css/project_page.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/static/css/style.css">
+  </head>
+  <body>
+    
+		<div class="wrapper d-flex align-items-stretch">
+      
+			<nav id="sidebar" >
+				<div class="p-4 pt-5">
+		  		<a href=/ class="img logo rounded-circle mb-5" style="background-image: url(/static/images/me.jpg);"></a>
+	        <ul class="list-unstyled components mb-5">
+	          <li >
+	            <a href=/ >Home</a>
+	          </li>
+	          <li >
+	              <a href=/about.html>About</a>
+	          </li>
+	          <!-- <li>
+              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+              <ul class="collapse list-unstyled" id="pageSubmenu">
+                <li>
+                    <a href="#">Page 1</a>
+                </li>
+                <li>
+                    <a href="#">Page 2</a>
+                </li>
+                <li>
+                    <a href="#">Page 3</a>
+                </li>
+              </ul>
+	          </li> -->
+	          <li >
+              <a href=/projects.html>Projects</a>
+	          </li>
+	          <li>
+              <a href="/contact.html">Contact</a>
+	          </li>
+	        </ul>
+
+          
+	        <div class="footer">
+	        	<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+						  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+          </div>
+          
+
+	      </div>
+      </nav>
+      
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5">
+
+        
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+
+            
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+              <i class="fa fa-bars"></i>
+              <span class="sr-only">Toggle Menu</span>
+            </button>
+            
+            <button class="btn btn-primary d-inline-block d-lg-none mr-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href=/>Home</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href=/about.html>About</a>
+                </li>
+                <li class="">
+                    <a class="nav-link" href=/projects.html>Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact.html">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        
+
+        
+<h1>Lab Planner</h1>
+
+<img src="/media/demo/golden-gate.png" alt="A diagram of golden gate assembly (a method for replicating DNA)" id="demo-img"/>
+</br>
+
+<p>Lab Planner is a Java application created as a final project for BioE 134 (Genetic Design Automation) at UC Berkeley by a group of ten students. It attempts to solve problems inherent in running an  undergraduate genetics laboratory, and it was used in this capacity the following semester for BioE 144L (Protein Informatics Laboratory). It can generate steps for an experiment with minimal input, schedule those steps, assign them to students, and automatically update the inventory of the lab as tasks are completed. </p>
+<p>For more information on the issues unique to running this sort of laboratory, and how we attempted to address them, see below:</p>
+<h3>Abstracting Common Design Patterns</h3>
+<p>Many operations performed in genetics experiments are rather complicated, but the steps performed differ in only a few places depending on the desired product or the starting reactants.</p>
+<p>For example, these are steps one might take when performing <a href="https://www.genome.gov/about-genomics/fact-sheets/Polymerase-Chain-Reaction-Fact-Sheet">PCR (Polymerase Chain Reaction)</a> :</p>
+<ul>
+<li>For each primer oligonucleotide, prepare a 10 micromolar dilution</li>
+<li>Prepare a 20x dilution of the template</li>
+<li>Add 28.5 μL of water, 10 μL of the polymerase buffer, 5 μL of each dNTP, 2.5 μL of each primer solution, 1 μL of the diluted template, and .5 μL of the polymerase enzyme</li>
+<li>Mix well</li>
+</ul>
+<p>However, the only thing that will change each time you perform PCR are the primers and template. Since a given experiment will have at least a dozen of these operations, it is a lot of redundant information to list out all the steps each time. Therefore, we represent each experiment as a <strong>Construction File</strong>, where each line of the file condenses an operation as a single step. </p>
+<p>For example, the above PCR would simply be represented as <code>pcr  [Oligo1],[Oligo2] on [TargetName]   ([ProductLength] bp, [ProductName])</code>.</p>
+<p>Each step in a Construction File can be assigned to a student, and after they complete it, it will be parsed to update the inventory automatically.</p>
+<h3>Assigning Asynchronous Tasks to Students</h3>
+<p>While many introductory-level laboratory courses assign all students the same tasks in a given lab section, in other contexts it is common to divide up the steps for an assignment among students, or even for students to be doing different experiments entirely. If a user to specifies a collection of Construction Files, each representing an experiment, Lab Planner will divide the steps for those experiments among students in a way that minimizes the amount of time students will have to wait in-between steps (e.g. if they have to wait for a shared resource, or if one of the steps requires a certain amount of time to pass before proceeding). </p>
+<p>Additionally, if not all steps are completed in a day, they will be rolled over to the next day and Lab Planner will assign steps accordingly. It is even possible to specify absences or holidays, or to only assign students to steps that they have received training for.</p>
+<h3>Explaining Tasks In Granular Detail</h3>
+<p>Although a veteran geneticist may know exactly what to do when you tell them something as abstract as &ldquo;perform <a href="https://www.neb.com/applications/cloning-and-synthetic-biology/dna-assembly-and-cloning/golden-gate-assembly">Golden Gate Assembly</a> on these fragments using this enzyme&rdquo;, a student will likely need more information. This might include the exact concentration of solutions they must create, the intermediate steps they must perform, and even what equipment to use. To assist with this, when dividing up steps, Lab Planner will convert each Construction File step to a less abstracted format we call a <strong>Semi Protocol</strong>. </p>
+<p>A Semi Protocol describes the steps at a level of granularity appropriate for a student with the prerequisite experience required for an upper-division laboratory course. In fact, a Semi Protocol is sufficient to develop a range of tools to assist with lab procedures. One such application that we considered is a &ldquo;pipette aid&rdquo; - a GUI which tells laboratory workers exactly which wells of a <a href="https://en.wikipedia.org/wiki/Microplate">microplate</a> to add a liquid to at each step of the experiment.</p>
+
+
+<hr class="gallery-divide"/>
+<div class="row justify-content-md-center" id="gallery" data-toggle="modal" data-target="#galleryModal">
+    
+    <div class="col-12 col-sm-6 col-lg-4 thumbnail-container">
+        <img class="w-100 thumbnail" src="/media/gallery/Construction_File.PNG" alt="List of steps, including digestion, ligation, and miniprep" data-target="#carouselExample"/>
+    </div>
+    
+    <div class="col-12 col-sm-6 col-lg-4 thumbnail-container">
+        <img class="w-100 thumbnail" src="/media/gallery/Semi_Protocol.PNG" alt="A series of rows in a spreadsheet listing names of solutions and specifying containers to put them i" data-target="#carouselExample"/>
+    </div>
+    
+    <div class="col-12 col-sm-6 col-lg-4 thumbnail-container">
+        <img class="w-100 thumbnail" src="/media/gallery/PipetteAid.PNG" alt="A diagram of a microplate (a rectangle with many smaller wells) and instructions to transfer liquid" data-target="#carouselExample"/>
+    </div>
+    
+</div>
+
+<div class="modal fade" id="galleryModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+            <div id ="carouselContainer" class="carousel slide" data-interval="false" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="/media/gallery/Construction_File.PNG" alt="" />
+                        <div class="caption">
+                            An example Construction File, showing an abstracted series of steps for a simple experiment
+                        </div>
+                    </div>
+                    
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="/media/gallery/Semi_Protocol.PNG" alt="A series of rows in a spreadsheet listing names of solutions and specifying containers to put them i" />
+                            <div class="caption">
+                            An example Semi Protocol, showing what materials to transfer to different containers as part of a PCR reaction.
+                            </div>
+                        </div>
+                    
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="/media/gallery/PipetteAid.PNG" alt="A diagram of a microplate (a rectangle with many smaller wells) and instructions to transfer liquid" />
+                            <div class="caption">
+                            A prototype of a &quot;pipette aid&quot; program, which uses a Semi Protocol to tell users exactly how to transfer liquid during an experiment
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+            
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+      </div>
+		</div>
+
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/popper.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/main.js"></script>
+
+    
+<script>
+    $('.row .thumbnail').click(function(){
+		var idx = $(this).parents('div').index();
+		var id = parseInt(idx);
+		$('#galleryModal').modal('show'); // show the modal
+		$('#carouselContainer').carousel(id); // slide carousel to selected
+});
+</script>
+
+  </body>
+</html>

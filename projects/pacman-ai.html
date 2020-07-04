@@ -1,0 +1,255 @@
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    
+<title>Pacman AI</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    
+<link rel="stylesheet" href="/static/css/project_page.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/static/css/style.css">
+  </head>
+  <body>
+    
+		<div class="wrapper d-flex align-items-stretch">
+      
+			<nav id="sidebar" >
+				<div class="p-4 pt-5">
+		  		<a href=/ class="img logo rounded-circle mb-5" style="background-image: url(/static/images/me.jpg);"></a>
+	        <ul class="list-unstyled components mb-5">
+	          <li >
+	            <a href=/ >Home</a>
+	          </li>
+	          <li >
+	              <a href=/about.html>About</a>
+	          </li>
+	          <!-- <li>
+              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+              <ul class="collapse list-unstyled" id="pageSubmenu">
+                <li>
+                    <a href="#">Page 1</a>
+                </li>
+                <li>
+                    <a href="#">Page 2</a>
+                </li>
+                <li>
+                    <a href="#">Page 3</a>
+                </li>
+              </ul>
+	          </li> -->
+	          <li >
+              <a href=/projects.html>Projects</a>
+	          </li>
+	          <li>
+              <a href="/contact.html">Contact</a>
+	          </li>
+	        </ul>
+
+          
+	        <div class="footer">
+	        	<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+						  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+          </div>
+          
+
+	      </div>
+      </nav>
+      
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5">
+
+        
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+
+            
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+              <i class="fa fa-bars"></i>
+              <span class="sr-only">Toggle Menu</span>
+            </button>
+            
+            <button class="btn btn-primary d-inline-block d-lg-none mr-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href=/>Home</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href=/about.html>About</a>
+                </li>
+                <li class="">
+                    <a class="nav-link" href=/projects.html>Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact.html">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        
+
+        
+<h1>Pacman AI</h1>
+
+<img src="/media/demo/dfs.gif" alt="Pacman traversing a maze" id="demo-img"/>
+</br>
+
+<p>A set of projects developing AI for Pacman and similar agents, developed as part of CS 188 (Artifical Intellegence) at UC Berkeley in Fall 2017. This is a popular project used at multiple different universities, but it originated with this course. This iteration of the project contained several other applications of the techniques used for other AI problems, such as handwriting analysis, language recognition, and CartPole.</p>
+<p>Topics covered include:</p>
+<h2>Graph Search Algorithms</h2>
+<p>Representing the maze as a graph, Pacman finds the most efficient path to a specific location using DFS, BFS, Djikstra&rsquo;s Algorithm, and A* search. Additionally, these same algorithms can be used to find the most efficient path to eat all the pellets in the maze.</p>
+<h2>Adversarial Search</h2>
+<p>Introducing ghosts as enemy agents, Pacman attempts to survive as long as possible by predicting their moves using Minimax and Expectiminimax.</p>
+<h2>Reinforcement Learning</h2>
+<p>Representing the maze as an Markov Decision Process, Pacman trains using Q-Learning to attempt to find the best set of actions to take in order to survive. However, because the state space for even a medium-sized maze is very large, approximate Q-Learning is used instead. In approximate Q-Learning, a linear combination of each state&rsquo;s features are used to assign a value to each possible action, and the value of the weights in the linear combination are what&rsquo;s learned. This takes much less time compared to &ldquo;regular&rdquo; Q-learning, where a Q-value for each and every state must be learned and stored.</p>
+<h2>Bayesian Inference</h2>
+<p>In a twist on the normal game of Pacman, the maze Pacman travels around contains two houses - one of them &ldquo;safe&rdquo;, and the other containing ghosts. However, initially the maze is completely invisible, and only by traveling around the maze can its state be observed. Additionally, there is no way to tell for sure which house is which, but the more blue walls the house has, the more likely it is to be the safe house. </p>
+<p>Therefore, we can create an AI which collects observations from the maze by traveling randomly around it for a set time. After it collects these observations, it infers which house is most likely to be the safe house using a Bayesian Network model.</p>
+<h2>Inference with Noisy Observations</h2>
+<p>In another variation on Pacman, the maze contains multiple invisible ghosts that give off noisy signals. Pacman&rsquo;s goal is to track them down and eat them based on these signals. By constructing a Bayesian Network and using a joint particle filtering algorithm, Pacman generates a probability that each ghost is located at a specific square of the maze.</p>
+
+
+<hr class="gallery-divide"/>
+<div class="row justify-content-md-center" id="gallery" data-toggle="modal" data-target="#galleryModal">
+    
+    <div class="col-12 col-sm-6 col-lg-4 thumbnail-container">
+        <img class="w-100 thumbnail" src="/media/gallery/astar2.gif" alt="Pacman travelling in a maze, eating pellets" data-target="#carouselExample"/>
+    </div>
+    
+    <div class="col-12 col-sm-6 col-lg-4 thumbnail-container">
+        <img class="w-100 thumbnail" src="/media/gallery/expectimax.gif" alt="Pacman avoiding ghosts, somewhat ineffectively" data-target="#carouselExample"/>
+    </div>
+    
+    <div class="col-12 col-sm-6 col-lg-4 thumbnail-container">
+        <img class="w-100 thumbnail" src="/media/gallery/RL.gif" alt="Pacman quickly travelling in a maze with ghosts" data-target="#carouselExample"/>
+    </div>
+    
+    <div class="col-12 col-sm-6 col-lg-4 thumbnail-container">
+        <img class="w-100 thumbnail" src="/media/gallery/crawler-QLearningEpsilon.gif" alt="A box with an arm coming out of it dragging itself forward." data-target="#carouselExample"/>
+    </div>
+    
+    <div class="col-12 col-sm-6 col-lg-4 thumbnail-container">
+        <img class="w-100 thumbnail" src="/media/gallery/bayes.gif" alt="Pacman moving around, revealing two boxes" data-target="#carouselExample"/>
+    </div>
+    
+    <div class="col-12 col-sm-6 col-lg-4 thumbnail-container">
+        <img class="w-100 thumbnail" src="/media/gallery/particle.gif" alt="Pacman moving around a multicolored board" data-target="#carouselExample"/>
+    </div>
+    
+    <div class="col-12 col-sm-6 col-lg-4 thumbnail-container">
+        <img class="w-100 thumbnail" src="/media/gallery/RL-NN.gif" alt="A platform moving left and right to balance a pole on top of it" data-target="#carouselExample"/>
+    </div>
+    
+</div>
+
+<div class="modal fade" id="galleryModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+            <div id ="carouselContainer" class="carousel slide" data-interval="false" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="/media/gallery/astar2.gif" alt="" />
+                        <div class="caption">
+                            Finding a path through all the dots using A* search
+                        </div>
+                    </div>
+                    
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="/media/gallery/expectimax.gif" alt="Pacman avoiding ghosts, somewhat ineffectively" />
+                            <div class="caption">
+                            A Pacman AI using expectiminimax to avoid ghosts. This is a pretty slow method, especially with the graphics engine.
+                            </div>
+                        </div>
+                    
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="/media/gallery/RL.gif" alt="Pacman quickly travelling in a maze with ghosts" />
+                            <div class="caption">
+                            A Pacman AI trained with 50 iterations of approximate Q-Learning. Even this short training period leads to pretty smooth movement.
+                            </div>
+                        </div>
+                    
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="/media/gallery/crawler-QLearningEpsilon.gif" alt="A box with an arm coming out of it dragging itself forward." />
+                            <div class="caption">
+                            An application of Q-Learning used to train a crawler robot to move.
+                            </div>
+                        </div>
+                    
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="/media/gallery/bayes.gif" alt="Pacman moving around, revealing two boxes" />
+                            <div class="caption">
+                            Using Bayesian inference, Pacman is exploring the space (which was initially all invisible) to find the house most likely to be safe. The more blue walls it has, the more likely it is to be safe.
+                            </div>
+                        </div>
+                    
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="/media/gallery/particle.gif" alt="Pacman moving around a multicolored board" />
+                            <div class="caption">
+                            Using a particle filtering algorithm, this Pacman agent is attempting to find invisible ghosts which give off noisy signals. The colored tiles represent Pacman&#x27;s belief that a ghost of that color is at that position.
+                            </div>
+                        </div>
+                    
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="/media/gallery/RL-NN.gif" alt="A platform moving left and right to balance a pole on top of it" />
+                            <div class="caption">
+                            The CartPole problem solved using a Deep Q Network to learn weights for Approximate Q-Learning.
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+            
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+      </div>
+		</div>
+
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/popper.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/main.js"></script>
+
+    
+<script>
+    $('.row .thumbnail').click(function(){
+		var idx = $(this).parents('div').index();
+		var id = parseInt(idx);
+		$('#galleryModal').modal('show'); // show the modal
+		$('#carouselContainer').carousel(id); // slide carousel to selected
+});
+</script>
+
+  </body>
+</html>

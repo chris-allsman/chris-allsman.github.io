@@ -1,0 +1,203 @@
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    
+<title>Typing Speed Test</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    
+<link rel="stylesheet" href="/static/css/project_page.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/static/css/style.css">
+  </head>
+  <body>
+    
+		<div class="wrapper d-flex align-items-stretch">
+      
+			<nav id="sidebar" >
+				<div class="p-4 pt-5">
+		  		<a href=/ class="img logo rounded-circle mb-5" style="background-image: url(/static/images/me.jpg);"></a>
+	        <ul class="list-unstyled components mb-5">
+	          <li >
+	            <a href=/ >Home</a>
+	          </li>
+	          <li >
+	              <a href=/about.html>About</a>
+	          </li>
+	          <!-- <li>
+              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+              <ul class="collapse list-unstyled" id="pageSubmenu">
+                <li>
+                    <a href="#">Page 1</a>
+                </li>
+                <li>
+                    <a href="#">Page 2</a>
+                </li>
+                <li>
+                    <a href="#">Page 3</a>
+                </li>
+              </ul>
+	          </li> -->
+	          <li >
+              <a href=/projects.html>Projects</a>
+	          </li>
+	          <li>
+              <a href="/contact.html">Contact</a>
+	          </li>
+	        </ul>
+
+          
+	        <div class="footer">
+	        	<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+						  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+          </div>
+          
+
+	      </div>
+      </nav>
+      
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5">
+
+        
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+
+            
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+              <i class="fa fa-bars"></i>
+              <span class="sr-only">Toggle Menu</span>
+            </button>
+            
+            <button class="btn btn-primary d-inline-block d-lg-none mr-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href=/>Home</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href=/about.html>About</a>
+                </li>
+                <li class="">
+                    <a class="nav-link" href=/projects.html>Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact.html">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        
+
+        
+<h1>Typing Speed Test</h1>
+
+<img src="/media/demo/cats-demo.gif" alt="A multiplayer session of the game in progress" id="demo-img"/>
+</br>
+
+<p>For the Summer 2019 offering of CS 61A (The Structure and Interpretation of Computer Programs), I designed a new project where students implement a typing speed calculator and other features, including autocorrect so users can &ldquo;cheat&rdquo; and correct their mistakes as they type. It has since been updated to allow users to compete against each other in a multiplayer mode. In its current iteration, it is called CATS (the &ldquo;CS 61A Autocompleted Typing Software&rdquo;). Additionally, it was featured as a <a href="https://sigcse2020.sigcse.org/online/nifty.html#typingspeedtestcs1">&ldquo;Nifty Assignment&rdquo; as part of SIGCSE 2020.</a>. </p>
+<p>In its original incarnation, the project featured</p>
+<ul>
+<li>Realtime computation of speed (as measured by WPM) and accuracy</li>
+<li>Option to convert the source text to Pig Latin</li>
+<li>Option to update mistyped words using autocorrect in realtime, which students were encouraged to implement using a memoized form of the &ldquo;edit distance&rdquo; algorithm</li>
+</ul>
+<p>At the point in the course the project appeared, students had just learned how to manipulate sequences in Python and had some experience with problems involving recursion and multiple recursion. Our goal for this project was to reinforce these skills through familiar string-manipulation problems, and to introduce students to using external libraries and file I/O to build a program.</p>
+<p>You can try out the most recent version of the project <a href="https://cats.cs61a.org/">here</a> or view a video overview of the project <a href="https://www.youtube.com/watch?v=2GW3-zlD_-E&amp;feature=youtu.be">here</a>. The project spec and starter code delivered to students in Summer 2019 is located <a href="https://inst.eecs.berkeley.edu/~cs61a/su19/proj/typing_test/">here</a></p>
+<p>The project turned out to be a hit with students, as shown by this feedback shamelessly cherry-picked from our student survey:</p>
+<blockquote>
+<p>[I liked] the fact that the amount of code provided was minimal and basically we were responsible to implement all functions. This project was a big step towards understanding of how to write code and functions step by step to create a project.</p>
+<p>I really enjoyed that we were making something that we encounter everyday- autocorrect. I finally understood recursion after this project too so it was interesting to implement for this project.</p>
+<p>I have played type racer before and it is a lot of fun but never thought about how it works! So doing this project was really interesting because I could relate to it and wanted to recreate it myself.</p>
+</blockquote>
+<p>While I implemented most of the Python starter code, tests, and instructions delivered to students, Ryan Moughan and <a href="https://tiffanyperumpail.github.io/">Tiffany Perumpail</a> helped with the initial design of the project, Aman Shah made the initial tkinter GUI delivered to students, and Rahul Arya developed the React-based web GUI that is now in use.</p>
+
+
+<hr class="gallery-divide"/>
+<div class="row justify-content-md-center" id="gallery" data-toggle="modal" data-target="#galleryModal">
+    
+    <div class="col-12 col-sm-6 col-lg-4 thumbnail-container">
+        <img class="w-100 thumbnail" src="/media/gallery/autocorrect.gif" alt="Demonstration of autocorrect" data-target="#carouselExample"/>
+    </div>
+    
+    <div class="col-12 col-sm-6 col-lg-4 thumbnail-container">
+        <img class="w-100 thumbnail" src="/media/gallery/pig-latin.PNG" alt="Pig Latin demonstration" data-target="#carouselExample"/>
+    </div>
+    
+</div>
+
+<div class="modal fade" id="galleryModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+            <div id ="carouselContainer" class="carousel slide" data-interval="false" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="/media/gallery/autocorrect.gif" alt="" />
+                        <div class="caption">
+                            Autocorrect in motion - note that the corrections are not all perfect, so we encouraged students to think of how they might expand on their algorithm.
+                        </div>
+                    </div>
+                    
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="/media/gallery/pig-latin.PNG" alt="Pig Latin demonstration" />
+                            <div class="caption">
+                            A Pig Latin translation of the source text
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+            
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+      </div>
+		</div>
+
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/popper.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/main.js"></script>
+
+    
+<script>
+    $('.row .thumbnail').click(function(){
+		var idx = $(this).parents('div').index();
+		var id = parseInt(idx);
+		$('#galleryModal').modal('show'); // show the modal
+		$('#carouselContainer').carousel(id); // slide carousel to selected
+});
+</script>
+
+  </body>
+</html>

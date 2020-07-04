@@ -1,0 +1,197 @@
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    
+<title>Typed Python</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    
+<link rel="stylesheet" href="/static/css/project_page.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/static/css/style.css">
+  </head>
+  <body>
+    
+		<div class="wrapper d-flex align-items-stretch">
+      
+			<nav id="sidebar" >
+				<div class="p-4 pt-5">
+		  		<a href=/ class="img logo rounded-circle mb-5" style="background-image: url(/static/images/me.jpg);"></a>
+	        <ul class="list-unstyled components mb-5">
+	          <li >
+	            <a href=/ >Home</a>
+	          </li>
+	          <li >
+	              <a href=/about.html>About</a>
+	          </li>
+	          <!-- <li>
+              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+              <ul class="collapse list-unstyled" id="pageSubmenu">
+                <li>
+                    <a href="#">Page 1</a>
+                </li>
+                <li>
+                    <a href="#">Page 2</a>
+                </li>
+                <li>
+                    <a href="#">Page 3</a>
+                </li>
+              </ul>
+	          </li> -->
+	          <li >
+              <a href=/projects.html>Projects</a>
+	          </li>
+	          <li>
+              <a href="/contact.html">Contact</a>
+	          </li>
+	        </ul>
+
+          
+	        <div class="footer">
+	        	<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+						  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+          </div>
+          
+
+	      </div>
+      </nav>
+      
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5">
+
+        
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+
+            
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+              <i class="fa fa-bars"></i>
+              <span class="sr-only">Toggle Menu</span>
+            </button>
+            
+            <button class="btn btn-primary d-inline-block d-lg-none mr-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href=/>Home</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href=/about.html>About</a>
+                </li>
+                <li class="">
+                    <a class="nav-link" href=/projects.html>Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact.html">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        
+
+        
+<h1>Typed Python</h1>
+
+<img src="/media/demo/prog_output.PNG" alt="An AST created by the compiler" id="demo-img"/>
+</br>
+
+<p>A compiler for a typed subset of the Python 2.5 specification, developed with a group of 3 people in Spring 2018 for CS 164 (Programming Languages) at UC Berkeley. The compiler itself is written in C++, and compiles to C++ as well. The lexer and parser are written using Bison &amp; FLEX.</p>
+<p>Although the language features are somewhat limited (e.g. no augmented assignment, floating point literals, decorators, or lambda functions), there are some notable additions:</p>
+<ul>
+<li>Type denotations for target variables in assignments or formal parameters in functions are included, and enforced as compile-time checks. This differs from type-hinting in recent versions of Python3, which does not actually enforce types.</li>
+<li>Type arguments for classes, allowing for generic types</li>
+<li>Function overloading - multiple functions with the same name are disambiguated by the number and types of their parameters</li>
+<li>Native functions, allowing you to designate a C or C++ function to implement the Python function.</li>
+<li>Optimized integer operations, achieved by working with integers as &ldquo;unboxed&rdquo; values instead of objects.</li>
+</ul>
+<p>Additionally, full garbage collection is implemented, as in standard Python.</p>
+
+
+<hr class="gallery-divide"/>
+<div class="row justify-content-md-center" id="gallery" data-toggle="modal" data-target="#galleryModal">
+    
+    <div class="col-12 col-sm-6 col-lg-4 thumbnail-container">
+        <img class="w-100 thumbnail" src="/media/gallery/typing_mSckQWA.PNG" alt="Typed classes, functions, and variables" data-target="#carouselExample"/>
+    </div>
+    
+    <div class="col-12 col-sm-6 col-lg-4 thumbnail-container">
+        <img class="w-100 thumbnail" src="/media/gallery/codegen.PNG" alt="Many lines of C++ generated from a single loop" data-target="#carouselExample"/>
+    </div>
+    
+</div>
+
+<div class="modal fade" id="galleryModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+            <div id ="carouselContainer" class="carousel slide" data-interval="false" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="/media/gallery/typing_mSckQWA.PNG" alt="" />
+                        <div class="caption">
+                            A small example of the dialect supported
+                        </div>
+                    </div>
+                    
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="/media/gallery/codegen.PNG" alt="Many lines of C++ generated from a single loop" />
+                            <div class="caption">
+                            C++ code generated (left) from simple Python code (right)
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+            
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+      </div>
+		</div>
+
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/popper.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/main.js"></script>
+
+    
+<script>
+    $('.row .thumbnail').click(function(){
+		var idx = $(this).parents('div').index();
+		var id = parseInt(idx);
+		$('#galleryModal').modal('show'); // show the modal
+		$('#carouselContainer').carousel(id); // slide carousel to selected
+});
+</script>
+
+  </body>
+</html>

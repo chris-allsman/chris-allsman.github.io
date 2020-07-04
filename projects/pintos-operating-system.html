@@ -1,0 +1,146 @@
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    
+<title>Pintos Operating System</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    
+<link rel="stylesheet" href="/static/css/project_page.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/static/css/style.css">
+  </head>
+  <body>
+    
+		<div class="wrapper d-flex align-items-stretch">
+      
+			<nav id="sidebar" >
+				<div class="p-4 pt-5">
+		  		<a href=/ class="img logo rounded-circle mb-5" style="background-image: url(/static/images/me.jpg);"></a>
+	        <ul class="list-unstyled components mb-5">
+	          <li >
+	            <a href=/ >Home</a>
+	          </li>
+	          <li >
+	              <a href=/about.html>About</a>
+	          </li>
+	          <!-- <li>
+              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+              <ul class="collapse list-unstyled" id="pageSubmenu">
+                <li>
+                    <a href="#">Page 1</a>
+                </li>
+                <li>
+                    <a href="#">Page 2</a>
+                </li>
+                <li>
+                    <a href="#">Page 3</a>
+                </li>
+              </ul>
+	          </li> -->
+	          <li >
+              <a href=/projects.html>Projects</a>
+	          </li>
+	          <li>
+              <a href="/contact.html">Contact</a>
+	          </li>
+	        </ul>
+
+          
+	        <div class="footer">
+	        	<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+						  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+          </div>
+          
+
+	      </div>
+      </nav>
+      
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5">
+
+        
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+
+            
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+              <i class="fa fa-bars"></i>
+              <span class="sr-only">Toggle Menu</span>
+            </button>
+            
+            <button class="btn btn-primary d-inline-block d-lg-none mr-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href=/>Home</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href=/about.html>About</a>
+                </li>
+                <li class="">
+                    <a class="nav-link" href=/projects.html>Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact.html">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        
+
+        
+<h1>Pintos Operating System</h1>
+
+<img src="/media/demo/kernel.png" alt="An error message displayed in the terminal, featuring a page fault and kernel panic" id="demo-img"/>
+</br>
+
+<p>An operating system created with a group of 3 people in Spring 2019 for CS 162 (Operating Systems) at UC Berkeley.  Although the skeleton of the operating system was provided for us, most of the major features (multithreading, user programs, and file systems) were implemented by us.</p>
+<p>The major features we implemented were:</p>
+<ul>
+<li>Priority scheduling of threads, with priority donation when waiting on synchronization primitives and efficient sleeping</li>
+<li>Option to schedule threads via a <a href="https://en.wikipedia.org/wiki/Multilevel_feedback_queue">multilevel feedback queue</a> </li>
+<li>Support for user programs with argument passing</li>
+<li>Process control syscalls (e.g. exec, wait), and thread safe filesystem syscalls (e.g. read, write) which allow multiple simultaneous filesystem accesses</li>
+<li>A Unix-like filesystem including a buffer cache, extensible files, and graceful handling of subdirectories</li>
+</ul>
+<p>Of course, there are many subtle implementation details and lots of planning that went into the project that I won&rsquo;t post publicly, due to a variant of this project being quite common across universities.</p>
+
+
+
+
+      </div>
+		</div>
+
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/popper.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/main.js"></script>
+
+    
+<script>
+    $('.row .thumbnail').click(function(){
+		var idx = $(this).parents('div').index();
+		var id = parseInt(idx);
+		$('#galleryModal').modal('show'); // show the modal
+		$('#carouselContainer').carousel(id); // slide carousel to selected
+});
+</script>
+
+  </body>
+</html>

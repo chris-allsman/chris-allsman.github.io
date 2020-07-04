@@ -1,41 +1,193 @@
----
-layout: default
----
 
 
-<!-- Main -->
-<div id="main">
-    <section>
-        {% for post in site.posts limit:1 %}
-            <header class="major">
-                <h2>{{ post.title }}</h2>
-                <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }}{% if post.author %} • {{ post.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
-            </header>
 
-            <section>
-                {{ post.content }}
-            </section>
-        {% endfor %}
-    </section>
-    <section>
-        <div class="row">
-            {% for post in site.posts offset:1 %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Chris Allsman</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-                <article class="{% cycle '6u', '6u$' %} 12u(small)">
-                    <header>
-                        <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-                    </header>
-                    <section>
-                        {{ post.excerpt }}
-                    </section>
-                    <footer>
-                        <ul class="actions">
-                            <li><a href="{{ post.url }}" class="button">Read More</a></li>
-                        </ul>
-                    </footer>
-                </article>
 
-            {% endfor %}
-        </div>
-    </section>
+    
+<link rel="stylesheet" href="/static/css/main.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/static/css/style.css">
+  </head>
+  <body>
+    
+		<div class="wrapper d-flex align-items-stretch">
+      
+			<nav id="sidebar"  class="active" >
+				<div class="p-4 pt-5">
+		  		<a href=/ class="img logo rounded-circle mb-5" style="background-image: url(/static/images/me.jpg);"></a>
+	        <ul class="list-unstyled components mb-5">
+	          <li class="active">
+	            <a href=/ >Home</a>
+	          </li>
+	          <li >
+	              <a href=/about.html>About</a>
+	          </li>
+	          <!-- <li>
+              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+              <ul class="collapse list-unstyled" id="pageSubmenu">
+                <li>
+                    <a href="#">Page 1</a>
+                </li>
+                <li>
+                    <a href="#">Page 2</a>
+                </li>
+                <li>
+                    <a href="#">Page 3</a>
+                </li>
+              </ul>
+	          </li> -->
+	          <li >
+              <a href=/projects.html>Projects</a>
+	          </li>
+	          <li>
+              <a href="/contact.html">Contact</a>
+	          </li>
+	        </ul>
+
+          
+	        <div class="footer">
+	        	<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+						  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+          </div>
+          
+
+	      </div>
+      </nav>
+      
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5">
+
+        
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+
+            
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+              <i class="fa fa-bars"></i>
+              <span class="sr-only">Toggle Menu</span>
+            </button>
+            
+            <button class="btn btn-primary d-inline-block d-lg-none mr-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href=/>Home</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href=/about.html>About</a>
+                </li>
+                <li class="">
+                    <a class="nav-link" href=/projects.html>Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact.html">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        
+
+        
+<h2 style="text-align: center" >
+    Chris Allsman
+</h2>
+<h4>
+<ul class="dotsbetween">
+    <li>Programming</li>
+    <li>Teaching</li>
+    <li>Self-Promotion</li>
+</ul>
+</h4>
+
+<img class="main" src="/static/images/main.jpg" alt="Chris Allsman Headshot"></img>
+
+
+
+<p>
+    Hello! I'm a Computer Science graduate interested in systems programming, programming languages, and much more!
+I mostly program in Python and Scheme, but I also have experience with Go, Java, and C.
+</p>
+
+<p>
+    In addition to programming, I am passionate about computer science education. 
+    As an undergraduate at UC Berkeley, I was a teaching assistant for 
+    CS 61A for five semesters. I was also an instructor for the Summer 2019 offering 
+    of the course.
+</p>
+
+<p>
+    I am currently looking for full-time software engineering positions. Feel free to contact
+    me or view a sample of my previous projects below!
+</p>
+
+<hr class="project-divide"/>
+
+<div class="row" id="projects">
+    
+    <div class="col-md-4">
+        <a href="/projects/typing-speed-test.html" class="project-link">
+            <div class="proj-container">
+                <h5>Typing Speed Test</h5>
+                </br>
+                 <img class="thumbnail" src="/media/thumbnails/cats-thumb_6hstdIG.PNG"> 
+                </br>
+                <p>A TypeRacer-inspired game where you compete to type a passage the fastest, with some cool additional features! Featured as a &quot;Nifty Assignment&quot; at SIGSCE 2020.</p>
+            </div>
+        </a>
+    </div>
+    
+    <div class="col-md-4">
+        <a href="/projects/photo-manipulation.html" class="project-link">
+            <div class="proj-container">
+                <h5>Photo Manipulation</h5>
+                </br>
+                 <img class="thumbnail" src="/media/thumbnails/shrek.jpg"> 
+                </br>
+                <p>A collection of photoshop-like effects achieved entirely in Python</p>
+            </div>
+        </a>
+    </div>
+    
+    <div class="col-md-4">
+        <a href="/projects/rna-aligner.html" class="project-link">
+            <div class="proj-container">
+                <h5>RNA Aligner</h5>
+                </br>
+                 <img class="thumbnail" src="/media/thumbnails/RNA.jpg"> 
+                </br>
+                <p>An efficient algorithm for aligning RNA sequences to large genomes.</p>
+            </div>
+        </a>
+    </div>
+    
 </div>
+
+
+
+      </div>
+		</div>
+
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/popper.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/main.js"></script>
+
+    
+    
+  </body>
+</html>
