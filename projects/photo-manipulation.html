@@ -1,0 +1,230 @@
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    
+<title>Photo Manipulation</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    
+<link rel="stylesheet" href="/static/css/project_page.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/static/css/style.css">
+  </head>
+  <body>
+    
+		<div class="wrapper d-flex align-items-stretch">
+      
+			<nav id="sidebar" >
+				<div class="p-4 pt-5">
+		  		<a href=/ class="img logo rounded-circle mb-5" style="background-image: url(/static/images/me.jpg);"></a>
+	        <ul class="list-unstyled components mb-5">
+	          <li >
+	            <a href=/ >Home</a>
+	          </li>
+	          <li >
+	              <a href=/about>About</a>
+	          </li>
+	          <!-- <li>
+              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+              <ul class="collapse list-unstyled" id="pageSubmenu">
+                <li>
+                    <a href="#">Page 1</a>
+                </li>
+                <li>
+                    <a href="#">Page 2</a>
+                </li>
+                <li>
+                    <a href="#">Page 3</a>
+                </li>
+              </ul>
+	          </li> -->
+	          <li >
+              <a href=/projects/>Projects</a>
+	          </li>
+	          <li>
+              <a href="/contact">Contact</a>
+	          </li>
+	        </ul>
+
+          
+	        <div class="footer">
+	        	<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+						  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+          </div>
+          
+
+	      </div>
+      </nav>
+      
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5">
+
+        
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+
+            
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+              <i class="fa fa-bars"></i>
+              <span class="sr-only">Toggle Menu</span>
+            </button>
+            
+            <button class="btn btn-primary d-inline-block d-lg-none mr-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href=/>Home</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href=/about>About</a>
+                </li>
+                <li class="">
+                    <a class="nav-link" href=/projects/>Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        
+
+        
+<h1>Photo Manipulation</h1>
+
+<p>As part of CS 194-26 (Computational Photography) at UC Berkeley, I created a collection of computer-manipulated images using techniques such as Poisson blending, image warping through the affine transformation of a Delaunay triangulation, Sobel filtering, and more. </p>
+<p>You can see a sample of what I made in the gallery below, but you can also see some interesting results <a href="https://inst.eecs.berkeley.edu/~cs194-26/fa18/upload/files/proj1/cs194-26-ael/">here</a>  and <a href="https://inst.eecs.berkeley.edu/~cs194-26/fa18/upload/files/proj4/cs194-26-ael/">here</a> .</p>
+
+
+<hr class="gallery-divide"/>
+<div class="row justify-content-md-center" id="gallery" data-toggle="modal" data-target="#galleryModal">
+    
+    <div class="col-12 col-sm-6 col-lg-4 thumbnail-container">
+        <img class="w-100 thumbnail" src="/media/gallery/characature.jpg" alt="A photograph of me, with the size of my nose and face exaggerated" data-target="#carouselExample"/>
+    </div>
+    
+    <div class="col-12 col-sm-6 col-lg-4 thumbnail-container">
+        <img class="w-100 thumbnail" src="/media/gallery/tr_out.jpg" alt="Hybrid Image" data-target="#carouselExample"/>
+    </div>
+    
+    <div class="col-12 col-sm-6 col-lg-4 thumbnail-container">
+        <img class="w-100 thumbnail" src="/media/gallery/graffiti_mixed.jpg" alt="A room with a white wall with graffiti blended into part of it" data-target="#carouselExample"/>
+    </div>
+    
+    <div class="col-12 col-sm-6 col-lg-4 thumbnail-container">
+        <img class="w-100 thumbnail" src="/media/gallery/bonut.jpg" alt="A bagel that turns into a donut halfway through" data-target="#carouselExample"/>
+    </div>
+    
+    <div class="col-12 col-sm-6 col-lg-4 thumbnail-container">
+        <img class="w-100 thumbnail" src="/media/gallery/necklace-refocus.gif" alt="A sequence of images of the same necklace, with the portion that is in focus constantly shifting." data-target="#carouselExample"/>
+    </div>
+    
+    <div class="col-12 col-sm-6 col-lg-4 thumbnail-container">
+        <img class="w-100 thumbnail" src="/media/gallery/flower-aperature.gif" alt="A vase full of flowers, gradually becoming more out of focus." data-target="#carouselExample"/>
+    </div>
+    
+</div>
+
+<div class="modal fade" id="galleryModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+            <div id ="carouselContainer" class="carousel slide" data-interval="false" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="/media/gallery/characature.jpg" alt="" />
+                        <div class="caption">
+                            A &quot;caricature&quot; of myself, created by finding a transformation between an &quot;average&quot; face and my own, and then extrapolating that to exaggerate my features more.
+                        </div>
+                    </div>
+                    
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="/media/gallery/tr_out.jpg" alt="Hybrid Image" />
+                            <div class="caption">
+                            A &quot;hybrid&quot; image which looks mostly like a trash can when viewed up close, and mostly like a human face when viewed from far away. It was created by applying a high-pass filter to the trash can and a low-pass filter to the face, and combining the two images.
+                            </div>
+                        </div>
+                    
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="/media/gallery/graffiti_mixed.jpg" alt="A room with a white wall with graffiti blended into part of it" />
+                            <div class="caption">
+                            An image created using a technique called gradient mixing - essentially, the image gradients are combined in a specific way to ensure the transition between the two is not too &quot;rough&quot;.
+                            </div>
+                        </div>
+                    
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="/media/gallery/bonut.jpg" alt="A bagel that turns into a donut halfway through" />
+                            <div class="caption">
+                            Another example of gradient fusion, this time using a technique called Poisson blending. Mixed blending works better when you want to preserve the background image more, but here Poisson blending works just fine.
+                            </div>
+                        </div>
+                    
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="/media/gallery/necklace-refocus.gif" alt="A sequence of images of the same necklace, with the portion that is in focus constantly shifting." />
+                            <div class="caption">
+                            An image with its depth of focus artificially modified. It was created from a series of pictures taken from a camera array known as a Lightfield camera.
+                            </div>
+                        </div>
+                    
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="/media/gallery/flower-aperature.gif" alt="A vase full of flowers, gradually becoming more out of focus." />
+                            <div class="caption">
+                            An example of how we can artificially modify the apparent aperture of a photo taken by a Lightfield camera. The aperture determines the amount of light let in when taking the picture, affecting the focus.
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+            
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+      </div>
+		</div>
+
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/popper.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/main.js"></script>
+
+    
+<script>
+    $('.row .thumbnail').click(function(){
+		var idx = $(this).parents('div').index();
+		var id = parseInt(idx);
+		$('#galleryModal').modal('show'); // show the modal
+		$('#carouselContainer').carousel(id); // slide carousel to selected
+});
+</script>
+
+  </body>
+</html>

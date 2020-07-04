@@ -1,0 +1,189 @@
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    
+<title>RNA Aligner</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    
+<link rel="stylesheet" href="/static/css/project_page.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/static/css/style.css">
+  </head>
+  <body>
+    
+		<div class="wrapper d-flex align-items-stretch">
+      
+			<nav id="sidebar" >
+				<div class="p-4 pt-5">
+		  		<a href=/ class="img logo rounded-circle mb-5" style="background-image: url(/static/images/me.jpg);"></a>
+	        <ul class="list-unstyled components mb-5">
+	          <li >
+	            <a href=/ >Home</a>
+	          </li>
+	          <li >
+	              <a href=/about>About</a>
+	          </li>
+	          <!-- <li>
+              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+              <ul class="collapse list-unstyled" id="pageSubmenu">
+                <li>
+                    <a href="#">Page 1</a>
+                </li>
+                <li>
+                    <a href="#">Page 2</a>
+                </li>
+                <li>
+                    <a href="#">Page 3</a>
+                </li>
+              </ul>
+	          </li> -->
+	          <li >
+              <a href=/projects/>Projects</a>
+	          </li>
+	          <li>
+              <a href="/contact">Contact</a>
+	          </li>
+	        </ul>
+
+          
+	        <div class="footer">
+	        	<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+						  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+          </div>
+          
+
+	      </div>
+      </nav>
+      
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5">
+
+        
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+
+            
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+              <i class="fa fa-bars"></i>
+              <span class="sr-only">Toggle Menu</span>
+            </button>
+            
+            <button class="btn btn-primary d-inline-block d-lg-none mr-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href=/>Home</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href=/about>About</a>
+                </li>
+                <li class="">
+                    <a class="nav-link" href=/projects/>Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        
+
+        
+<h1>RNA Aligner</h1>
+
+<img src="/media/demo/Alignment.PNG" alt="An example of how a RNA nucleotide sequence might align with a genome" id="demo-img"/>
+</br>
+
+<p>Sequence alignment is an important problem in bioinformatics: simply put, given a genetic sequence, in this case RNA, where is its best match in a larger sequence, such as an entire genome? Finding an exact match can be done in <a href="https://cp-algorithms.com/string/z-function.html">linear time</a> , and even inexact matches can be found in linear time if you <a href="http://jur.byu.edu/?p=4228">bound the number of mismatches</a>. However, the task is not always this simple: nucleotide substitution may have taken place anywhere in either sequence, and long stretches of DNA (known as <a href="https://www.genome.gov/genetics-glossary/Intron">introns</a>) may have been inserted in the middle of the genomic sequence. Perhaps the biggest issue is that the genome is <em>very</em> large - a human genome is by itself ~3 GB, so even a polynomial space/time algorithm on the size of the genome may be unrealistic.</p>
+<p>The approach this algorithm takes is similar to that of <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3322381/">Bowtie2</a> with some simplifications and modifications for the problem at hand. It is able to find an alignment in under 0.5 seconds, and using <a href="https://en.wikipedia.org/wiki/FM-index">FM-index compression</a>, space requirements are low - the genome sequence is only needed during initialization and can be discarded when finding an alignment.</p>
+<p>The (simplified) steps of the algorithm are as follows:</p>
+<ul>
+<li>Break the read sequence into overlapping seeds of length 16 every 10 positions.</li>
+<li>For a given <a href="https://en.wikipedia.org/wiki/Gene_isoform">isoform</a>, align each seed greedily to minimize mismatches. A naive algorithm would take quadratic time, but it can be done in linear time using the FM-index.</li>
+<li>Discard all seeds with more than a threshold number of mismatches.</li>
+<li>Choose a subset of seeds using a weighted random selection based on the number of mismatches associated with its best alignment.</li>
+<li>Expand each seed chosen to the full length of the read sequence, to get a set of alignments for the read sequence with the isoform. Make sure to remove any introns from the alignment.</li>
+<li>Count the number of mismatches in each alignment to get the &ldquo;best&rdquo; alignment for that isoform.</li>
+<li>Repeat for each isoform to find the best alignment for the read sequence across the entire genome.</li>
+</ul>
+<p>In practice, there is no reason to use this over Bowtie2 or any number of other sequence alignment tools, but it was an interesting exercise in exploring the mechanics behind their operation, and to see how the implementation might vary if you&rsquo;re working under a different set of assumptions.</p>
+
+
+<hr class="gallery-divide"/>
+<div class="row justify-content-md-center" id="gallery" data-toggle="modal" data-target="#galleryModal">
+    
+    <div class="col-12 col-sm-6 col-lg-4 thumbnail-container">
+        <img class="w-100 thumbnail" src="/media/gallery/align_2.gif" alt="An animation of the algorithm running, with four small seeds created" data-target="#carouselExample"/>
+    </div>
+    
+</div>
+
+<div class="modal fade" id="galleryModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+            <div id ="carouselContainer" class="carousel slide" data-interval="false" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="/media/gallery/align_2.gif" alt="" />
+                        <div class="caption">
+                            A very small example of how the algorithm runs. The bottom sequence is the genome, with the gray section representing an intron that is not considered in the alignment.
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+      </div>
+		</div>
+
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/popper.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/main.js"></script>
+
+    
+<script>
+    $('.row .thumbnail').click(function(){
+		var idx = $(this).parents('div').index();
+		var id = parseInt(idx);
+		$('#galleryModal').modal('show'); // show the modal
+		$('#carouselContainer').carousel(id); // slide carousel to selected
+});
+</script>
+
+  </body>
+</html>

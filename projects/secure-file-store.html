@@ -1,0 +1,196 @@
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    
+<title>Secure File Store</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    
+<link rel="stylesheet" href="/static/css/project_page.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/static/css/style.css">
+  </head>
+  <body>
+    
+		<div class="wrapper d-flex align-items-stretch">
+      
+			<nav id="sidebar" >
+				<div class="p-4 pt-5">
+		  		<a href=/ class="img logo rounded-circle mb-5" style="background-image: url(/static/images/me.jpg);"></a>
+	        <ul class="list-unstyled components mb-5">
+	          <li >
+	            <a href=/ >Home</a>
+	          </li>
+	          <li >
+	              <a href=/about>About</a>
+	          </li>
+	          <!-- <li>
+              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+              <ul class="collapse list-unstyled" id="pageSubmenu">
+                <li>
+                    <a href="#">Page 1</a>
+                </li>
+                <li>
+                    <a href="#">Page 2</a>
+                </li>
+                <li>
+                    <a href="#">Page 3</a>
+                </li>
+              </ul>
+	          </li> -->
+	          <li >
+              <a href=/projects/>Projects</a>
+	          </li>
+	          <li>
+              <a href="/contact">Contact</a>
+	          </li>
+	        </ul>
+
+          
+	        <div class="footer">
+	        	<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+						  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+          </div>
+          
+
+	      </div>
+      </nav>
+      
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5">
+
+        
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+
+            
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+              <i class="fa fa-bars"></i>
+              <span class="sr-only">Toggle Menu</span>
+            </button>
+            
+            <button class="btn btn-primary d-inline-block d-lg-none mr-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href=/>Home</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href=/about>About</a>
+                </li>
+                <li class="">
+                    <a class="nav-link" href=/projects/>Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        
+
+        
+<h1>Secure File Store</h1>
+
+<img src="/media/demo/HMAC.webp" alt="A diagram of a protocol for authenticating messages using a MAC" id="demo-img"/>
+</br>
+
+<p>A small API for a remote filesystem that allows for uploading/removing files, sharing files among users, and revoking access to shared files. Its main features are its security guarantees. Specifically, it offers confidentiality and integrity - in other words, data placed in the server is inaccessible to anyone other than its uploader and the people they shared it with, and only the original uploader and the people they shared it with should be able to modify a file.</p>
+<p>The API supports initializing and loading users, storing and loading files, appending to files, sharing and receiving files, and revoking access to files.</p>
+<p>As a slightly more granular look at the security guarantees offered, the API operates under the following assumptions:</p>
+<ul>
+<li>The server containing the data is not trusted, and we should worry both about snooping/MITM attacks as well as the owner of the server being able to modify data stored</li>
+<li>There exists a server containing public keys which is trusted, and we have a secure channel connecting to them</li>
+<li>User passwords are secure (have good entropy)</li>
+<li>No state is saved other than that which is directly contained in a user&rsquo;s profile, and that data should either be derivable from the user password or loadable from the data store</li>
+</ul>
+<p>With these conditions, we get the following guarantees:</p>
+<ul>
+<li>All user names are kept confidential to the data store</li>
+<li>Upon loading a user (a user signs in again), if any of the user&rsquo;s information required to re-initialize the user&rsquo;s profile is modified or corrupted, an error will be returned.</li>
+<li>If not under attack by the data store or another user, retrieving a file will return the most recent version of the file uploaded by the file&rsquo;s owner or another user they shared the file with</li>
+<li>Even when under attack, retrieving a file will never return an incorrect value - defined as a value other than the most recent version uploaded, <strong>or</strong> a previous version uploaded by the owner or another user they shared the file with</li>
+<li>When a file is stored, nobody other than the file&rsquo;s owner should be able to learn full or partial information about the filename or data, other than the length of the data</li>
+<li>Every user a file has been shared with will be able to see updates to that file immediately</li>
+<li>Once a file is revoked, no user other than the original owner will be able to see updates to the file, nor will they have any information about updated or re-uploaded files other than its name</li>
+</ul>
+<p>One notable thing that is <strong>not</strong> guaranteed is rollback resistance - the data store or a malicious user may be able to revert a file to its previous version. If a user then tries to retrieve a file, they may receive an outdated version. This is a consequence of the data store being stateless. In an actual file store, this would not be acceptable, but for the purposes of this project it was a good enough compromise. The purpose of this project was mainly to see how cryptographic primitives may be used in an actual system, not implement one from scratch to use (which is almost universally a terrible idea when it comes to security).</p>
+
+
+<hr class="gallery-divide"/>
+<div class="row justify-content-md-center" id="gallery" data-toggle="modal" data-target="#galleryModal">
+    
+    <div class="col-12 col-sm-6 col-lg-4 thumbnail-container">
+        <img class="w-100 thumbnail" src="/media/gallery/Store.png" alt="Various handwritten arrows and symbols moving around a rectangular depiction of the store" data-target="#carouselExample"/>
+    </div>
+    
+</div>
+
+<div class="modal fade" id="galleryModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+            <div id ="carouselContainer" class="carousel slide" data-interval="false" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="/media/gallery/Store.png" alt="" />
+                        <div class="caption">
+                            An (intentionally vague) description of the operations which take place when interfacing with the store as a single person
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+      </div>
+		</div>
+
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/popper.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/main.js"></script>
+
+    
+<script>
+    $('.row .thumbnail').click(function(){
+		var idx = $(this).parents('div').index();
+		var id = parseInt(idx);
+		$('#galleryModal').modal('show'); // show the modal
+		$('#carouselContainer').carousel(id); // slide carousel to selected
+});
+</script>
+
+  </body>
+</html>
