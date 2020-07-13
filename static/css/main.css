@@ -16,18 +16,18 @@ ul.dotsbetween li:last-child:after { content: none; }
         align-items: center;
     }
 
-    .intro-wrapper > p {
+    .intro-wrapper p {
         font-size: 18px;
         margin-top: auto;
         margin-bottom: auto;
     }
 }
 
-/*
-img.main {
+
+.intro-wrapper img {
     max-height: 20vw;
-    padding-right: 25px;
-} */
+    float: right;
+}
 
 
 
