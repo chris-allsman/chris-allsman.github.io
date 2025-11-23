@@ -44,6 +44,9 @@
                 </li>
               </ul>
 	          </li> -->
+            <li class="">
+                  <a class="nav-link" target="_blank" href=/static/assets/resume.pdf>Resume</a>
+            </li>
 	          <li >
               <a href=/projects>Projects</a>
 	          </li>
@@ -55,7 +58,7 @@
           
 	        <div class="footer">
 	        	<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+						  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
 						  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
           </div>
           
@@ -90,7 +93,7 @@
                     <a class="nav-link" href=/about>About</a>
                 </li>
                 <li class="">
-                    <a class="nav-link" href=/projects>Projects</a>
+                    <a class="nav-link" target="_blank" href=/static/assets/resume.pdf>Resume</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/contact">Contact</a>
@@ -103,18 +106,25 @@
 
         
 <h1>About Chris Allsman</h1>
-<p>Right now, I'm using this website as a hub for my work in college and as a way to organize stuff I make going forward. There's plenty to browse <a href="/projects">here</a>, but feel
-free to contact me or check out me shamelessly flaunting my qualifications below!</p>
+<p>Please see my resume <a href="/static/assets/resume.pdf">here</a> for a complete list of my experience. I have some projects listed <a href="/projects">here</a>, but at
+the moment they are mostly an archive of my undergraduate course projects.</p>
 
 <div class="container">
     <div class="row">
         <div class="col">
-            <h2>Programming</h2>
-            <p>I received a BA in Computer Science with High Distinction from UC Berkeley in 2019. While in school, my primary focuses were Computational Biology and Programming Languages, 
-            although I also explored a bit of Machine Learning and Systems Programming. While these remain my primary interests, I'm always trying to explore new areas!</p>
-            <p>I mainly use Python and Go for my day-to-day programming, and used Scheme extensively in my academic work. 
-            However, my largest projects were written in C, C++, and Java, so I feel quite comfortable using them.
-            I've also dabbled in OCaml, Ruby, Prolog, and C#.</p>
+            <h2>Security</h2>
+            <p>Since September 2020, I have worked as a Software Engineer for OpenText's
+                <a href="https://www.opentext.com/products/static-application-security-testing">Static Application Security Testing (SAST) product</a>. Primarily, I work on various frontend components which
+                entail utilizing techniques from compiler construction to generate an intermediate representation (IR) of the source program for use in downstream analysis to identify security vulnerabilities.</p> 
+            <p>Increasingly, I have done work that interacts with program analysis algorithms (primarily related to dataflow analysis/abstract interpretation). Most recently, I've been working closely with security researchers 
+                on a new API for defining security rules which allows rule writers to cleanly and transparently introduce language-specific notions for how analysis should be conducted.
+            <p>Some resume-style bullet points:
+                <ul>
+                    <li>Own frontend modules for Solidity, PL/SQL, and the JavaScript frameworks SAPUI5, Handlebars, and Vue</li>
+                    <li>Augmented higher-order analysis for JavaScript/TypeScript by bundling and leveraging type information to optimize IRs</li>
+                    <li>Oversaw the migration of legacy modules to a next-generation analysis pipeline, including the migration of approximately 500 rules</li>
+                </ul>
+            </p>
         </div>
         <div class="col-md-3 my-auto">
             <img src="/static/images/languages.png" class="img-fluid" alt="A collection of logos for programming languages"/>
@@ -126,38 +136,85 @@ free to contact me or check out me shamelessly flaunting my qualifications below
 
 <div class="container">
     <div class="row">
-        <div class="col-md-3 my-auto">
-            <img src="/static/images/lecture.png" class="img-fluid" alt="An image of me lecturing on stage"/>
+                <div class="col-md-3 my-auto">
+            <img src="/static/images/likelihood.png" class="img-fluid" alt="An illustration of a likelihood statistic computed by an attacker and how it fails under significant genetic admixture."/>
         </div>
         <div class="col">
-        <h2>Teaching</h2>
-        <p>From 2017-2019, I was a TA for <a href="https://cs61a.org/">CS 61A</a> at UC Berkeley, which is the first computer science course most students take. 
-            For my final two semesters, I was a head TA responsible for developing and managing content, including homework, labs, discussion handouts, and a
-            <a href="/projects/typing-speed-test">new project</a>, recognized as a Nifty Assignment at SIGSCE 2020.
-            Additionally, I was recognized as an Outstanding GSI and received an award for Outstanding Undergraduate Teaching and Leadership.</p>
-         <p>After I graduated, I was an instructor for CS61A during the <a href="https://su19.cs61a.org/">Summer 2019 semester.</a> In addition to giving lectures and managing logistics for over 600 
-         students, I also developed the first online offering of the course. In my course evaluations, I was given a teaching effectiveness rating of 6.2/7, which 
-         <a href="https://hkn.eecs.berkeley.edu/coursesurveys/course/CS/61A">meets or exceeds</a> the effectiveness of other long-term professors that taught the course.</p>
-         <p>In addition to my positions on course staff, I was involved with <a href="https://csmentors.berkeley.edu/">Computer Science Mentors</a>, an organization which attempts to reduce the barrier to entry for students interested in declaring Computer Science by offering small group tutoring and other resources. I was a mentor for 6 semesters,
-         as well as a CS 61A course coordinator for 2 semesters and the Internal Vice President for 1 semester. In these roles, I was responsible for organizing content and logistics,
-     but also introduced new training and initiatives related to mental health and addressing unconscious bias. </p>
+            <h2>Privacy</h2>
+            <p>From 2022-2025 I pursued a Master's degree in Biomedical Informatics at Columbia University. My thesis research, under Dr. Gamze Gürsoy was titled "Evaluating Privacy-Preserving GWAS Summary Statistic Release", where I explored the utility and protection offered by differential privacy (DP) in the context of genetic association studies.</p>
+            <p>This research builds on <a href="https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1000167">seminal research</a> on 
+                <a href="https://www.researchgate.net/profile/Guillaume-Obozinski/publication/26761503_Genomic_privacy_and_limits_of_individual_detection_in_a_pool/links/0a85e53b2c737bf426000000/Genomic-privacy-and-limits-of-individual-detection-in-a-pool.pdf">membership inference attacks</a> 
+                in the context of <a href="https://en.wikipedia.org/wiki/Genome-wide_association_study">genome-wide association studies (GWAS)</a>. A GWAS identifies associations between genetic variants and a characteristic like disease status. 
+                Because genetic variants are highly identifying, often only summary-level statistics are released. Prior work has shown that this is sufficient for an attacker to determine if an individual took part in the study.</p> 
+            <p>This work is in preparation for submission, so in lieu of linking my thesis I will summarize my contributions:
+                <ul>
+                    <li>Perform membership inference attacks under a variety of distributional assumptions (e.g., for statistics computed in the presence of genetic admixture) to characterize scenarios in which they are successful</li>
+                    <li>Augment existing DP mechanisms by utilizing public reference statistics to reduce the variance of noise added to preserve privacy</li>
+                    <li>Generate tighter bounds on the privacy protection of DP mechanisms under specific distributional assumptions, leading to actionable guidance for genetic data scientists deciding how to release statistics.</li>
+                </ul>
+            </p>
+            <p>
+                More broadly, I am interested in privacy-preserving systems across various applied areas and identifying privacy norms relevant to those contexts.
+            </p>
         </div>
     </div>
-    
 </div>
-
-    
 
 </br>
 
 <div class="container">
     <div class="row">
         <div class="col">
-            <h2>Self-Promotion</h2>
-            <p>If the above somehow wasn't enough, you can check out my resume <a href="/static/assets/resume.pdf">here</a>. Please <a href="/contact">reach out</a>
-            if you'd like to talk!
+                    <h2>Just Technology</h2>
+
+        </div>    
+        <div class="col-md-3 my-auto">
+        </div>
+        </div>
+    <div class= "row">
+        <div class="col">
+        <h4>Justice-Oriented Research Practices</h4>
+        <p>While at Columbia, I was involved with the <a href="https://justice-informatics.github.io/">Justice Informatics Collaborative</a> - a student-led group created to explore the sociopolitical and historical context
+        of informatics research and identifying resources for conducting justice-oriented research. In this capacity, I was involved in two major lines of work:
+        <ol>
+            <li>
+                <p>In 2022, a workshop was held to engage biomedical informatics practitioners in identifying gaps, priorities, and opportunities for conducting justice-oriented research. I became involved in a qualitative (thematic) analysis of workshop
+                transcripts and written artifacts to synthesize principles of justice applicable across biomedical informatics disciplines.</p> <p>A paper titled <i>Contextualizing key principles to promote a justice-oriented informatics research
+agenda: proceedings and reflections from an American Medical Informatics Association workshop</i> is in press at the Journal of the American Medical Informatics Association.</p>
+            </li> 
+            <li>
+                Building off of this work, I authored two abstracts accepted as podium talks at the 2023 and 2024 AMIA Annual Symposia. Notes for the latter talk, which I co-presented, are <a href="https://justice-informatics.github.io/external.html#amia2024">available online</a>. These talks included a discussion on how to 
+                operationalize principles of justice and our perspectives on starting and expanding a grassroots, trainee-led group committed to principles of justice, equity, and anti-racism.
+            </li>
+        </ol>
+    </div>
+    
+        <div class="col-md-3 my-auto">
+            <img src="/static/images/principles.png" class="img-fluid" alt="A figure titled 'Principles for justice-oriented research' with five columns, each containing an icon and the title of the principle."/>
         </div>
     </div>
+    
+    <div class = "row">
+        <div class="col">
+        </p>
+        <h4>Teaching</h4>
+        <p>I view education as a way to empower practitioners to conduct work that embodies their values and as a mechanism by which students can begin to envision themselves as practitioners. 
+           From 2017-2019, I was involved with undergraduate education at UC Berkeley and continued to teach as a volunteer teacher for the 2021-2022 school year through the <a href="https://www.microsoft.com/en-us/teals">Microsoft TEALS Program.</a></p>
+        <p>Though my experience has primarily been in introductory (CS0/CS1) courses, I am interested in opportunities to explore privacy/security education and justice-centered computing education at any level.</p>
+        <p>Some accomplishments:
+            <ul>
+                <li>Taught <a href="https://cs61a.org/">CS 61A</a> at UC Berkeley for 6 semesters, including 2 semesters as a Head TA and a summer as a co-instructor where I was given a teaching effectiveness rating of 6.2/7</li>
+                <li>Recognized as an Outstanding GSI and for Outstanding Undergraduate Teaching and Leadership</li>
+                <li>Developed and piloted a <a href="/projects/typing-speed-test">new project</a>, presented at SIGSCE 2020 and still used in the course 6 years later</li>
+                <li>Served with <a href="https://csmentors.berkeley.edu/">Computer Science Mentors</a> for 6 semesters, including as a course coordinator and Internal Vice President. The organization provided small-group, personalized teaching for
+                    ~1,000 students each semester. I'm especially proud that I was able to mentor dozens of very talented junior teachers (and maintained the infrastructure to train hundreds more).
+                </ul>
+            </p>
+        </div>
+        <div class="col-md-3 my-auto">
+            <img src="/static/images/lecture.png" class="img-fluid" alt="An image of me lecturing on stage"/>
+        </div>
+</div>
 
       </div>
 		</div>
